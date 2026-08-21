@@ -10,7 +10,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, OrdinalEncoder
 from sklearn.ensemble import GradientBoostingClassifier
 from imblearn.over_sampling import SMOTE
-from streamlit_lottie import st_lottie_spinner
 
 
 # -----------------------------
@@ -302,19 +301,6 @@ model, model_columns = train_model(train_copy)
 # LOTTIE
 # -----------------------------
 @st.cache_data
-def load_lottieurl(url):
-    try:
-        response = requests.get(url, timeout=10)
-        if response.status_code == 200:
-            return response.json()
-    except Exception:
-        pass
-    return None
-
-
-lottie_loading_an = load_lottieurl(
-    "https://assets3.lottiefiles.com/packages/lf20_szlepvdh.json"
-)
 
 
 # -----------------------------
@@ -554,12 +540,7 @@ def prepare_profile_for_model(profile_df):
 
 
 if predict_bt:
-    with st_lottie_spinner(
-        lottie_loading_an,
-        quality="high",
-        height="200px",
-        width="200px"
-    ):
+    with st.spinner("Making prediction..."):
         try:
             profile_df = prepare_profile()
             profile_prepared = prepare_profile_for_model(profile_df)
