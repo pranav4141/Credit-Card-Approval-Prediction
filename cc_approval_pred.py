@@ -25,7 +25,7 @@ train_original = pd.read_csv(
 )
 
 test_original = pd.read_csv(
-    "https://raw.githubusercontent.com/pranav4141/Credit-Card-Approval-Prediction/refs/heads/main/datasets/test.csv?token=GHSAT0AAAAAAD7GLB333YKBLGQOHOM3OFYG2UH7YEQ"
+    "https://raw.githubusercontent.com/pranav4141/Credit-Card-Approval-Prediction/refs/heads/main/datasets/test.csv"
 )
 
 full_data = pd.concat([train_original, test_original], axis=0)
