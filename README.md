@@ -12,7 +12,7 @@ Badge [source](https://shields.io/)
 
 ## Authors
 
-- [@semasuka](https://www.github.com/semasuka)
+- [@pranav4141](https://www.github.com/pranav4141)
 
 ## Table of Contents
 
