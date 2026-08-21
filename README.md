@@ -7,8 +7,7 @@ Banner [source](https://banner.godori.dev/)
 
 Badge [source](https://shields.io/)
 
-# Key findings: People with the highest income, and who have at least one partner, are more likely to be approved for a credit card.
-
+# Description: A machine learning project that predicts whether a credit card applicant is likely to be classified as high risk based on applicant information. The project includes exploratory data analysis, feature engineering, preprocessing, comparison of multiple classification models, final model testing, and a Streamlit interface.
 
 ## Authors
 
@@ -16,9 +15,6 @@ Badge [source](https://shields.io/)
 
 ## Table of Contents
 
-  - [People with the highest education level, and who are either husbands or wifes make more money](#people-with-the-highest-education-level-and-who-are-either-husbands-or-wifes-make-more-money)
-  - [Authors](#authors)
-  - [Table of Contents](#table-of-contents)
   - [Business problem](#business-problem)
   - [Data source](#data-source)
   - [Methods](#methods)
@@ -47,15 +43,19 @@ This app predicts if an applicant will be approved for a credit card or not. Eac
 ## Methods
 
 - Exploratory data analysis
-- Bivariate analysis
+- Feature Engineering
 - Multivarate correlation
-- S3 bucket model hosting
+- SMOTE Oversampling
+- Select Gradient Boosting
 - Model deployment
+  
 ## Tech Stack
-
 - Python (refer to requirement.txt for the packages used in this project)
 - Streamlit (interface for the model)
-- AWS S3 (model storage)
+- Data Analysis: Pandas, NumPy, Matplotlib, Seaborn
+- Machine Learning: Scikit-learn, Imbalanced-learn, SMOTE, Gradient Boosting, Logistic Regression, Random Forest, Support Vector Machine, Decision Tree, AdaBoost
+- Deployment: Streamlit, Github
+- Supporting Libraries: Joblib, Requests, SciPy
 
 
 ## Quick glance at the results
@@ -158,17 +158,15 @@ To explore the notebook file [here](https://nbviewer.org/github/semasuka/Income-
 
 To deploy this project on streamlit share, follow these steps:
 
-- first, make sure you upload your files on Github, including a requirements.txt file
-- go to [streamlit share](https://share.streamlit.io/)
-- login with Github, Google, etc.
-- click on new app button
-- select the Github repo name, branch, python file with the streamlit codes
-- click advanced settings, select python version 3.9 and add the secret keys if your model is stored on AWS or GCP bucket
-- then save and deploy!
+- first, Push the project files to GitHub.
+- Make sure requirements.txt is in the repository root.
+- Open Streamlit Community Cloud.
+- Connect your GitHub account.
+- Select this repository.
+- Select the appropriate branch.
+- Set the main file to: cc_approval_pred.py
+- Deploy the application.
 
-## App deployed on Streamlit
-
-![Streamlit GIF](assets/gif_streamlit.gif)
 ## Repository structure
 
 
@@ -176,33 +174,25 @@ To deploy this project on streamlit share, follow these steps:
 
 
 ├── datasets
-│   ├── GDP.csv                     <- the data used to feature engineering/enriched the original data.
 │   ├── test.csv                    <- the test data.
 │   ├── train.csv                   <- the train data.
 │
 │
 ├── assets
-│   ├── confusion_matrix.png        <- confusion matrix image used in the README.
-│   ├── gif_streamlit.gif           <- gif file used in the README.
-│   ├── heatmap.png                 <- heatmap image used in the README.
-│   ├── Income_classification.png   <- banner image used in the README.
-│   ├── environment.yml             <- list of all the dependencies with their versions(for conda environment).
+│   ├── Credit_card_approval_banner.png   <- banner image used in the README.
+│   ├── confusion_matrix.png              <- confusion matrix image used in the README.
+│   ├── environment.yml                   <- list of all the dependencies with their versions(for conda environment).
+│   ├── heatmap.png                       <- heatmap image used in the README.
 │   ├── roc.png                     <- ROC image used in the README.
-│
-├── pandas_profile_file
-│   ├── income_class_profile.html   <- exported panda profile html file.
 │
 │
 ├── .gitignore                      <- used to ignore certain folder and files that won't be commit to git.
 │
 │
-├── Income_Classification.ipynb     <- main python notebook where all the analysis and modeling are done.
+├── Credit_card_approval_prediction.ipynb     <- main python notebook where all the analysis and modeling are done.
 │
 │
-├── LICENSE                         <- license file.
-│
-│
-├── income_class_st.py              <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
+├── cc_approval_pred.py             <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
 │
 │
 ├── README.md                       <- this readme file.
@@ -211,32 +201,3 @@ To deploy this project on streamlit share, follow these steps:
 ├── requirements.txt                <- list of all the dependencies with their versions(used for Streamlit ).
 
 ```
-## Contribution
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change or contribute.
-
-## License
-
-MIT License
-
-Copyright (c) 2022 Stern Semasuka
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Learn more about [MIT](https://choosealicense.com/licenses/mit/) license
