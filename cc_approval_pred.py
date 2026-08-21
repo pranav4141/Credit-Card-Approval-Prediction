@@ -10,7 +10,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, OrdinalEncoder
 from sklearn.ensemble import GradientBoostingClassifier
 from imblearn.over_sampling import SMOTE
-from streamlit_lottie import st_lottie_spinner
 
 
 # -----------------------------
@@ -554,27 +553,21 @@ def prepare_profile_for_model(profile_df):
 
 
 if predict_bt:
-    with st_lottie_spinner(
-        lottie_loading_an,
-        quality="high",
-        height="200px",
-        width="200px"
-    ):
-        try:
-            profile_df = prepare_profile()
-            profile_prepared = prepare_profile_for_model(profile_df)
+    with st.spinner("Making prediction..."):
+    try:
+        profile_df = prepare_profile()
+        profile_prepared = prepare_profile_for_model(profile_df)
 
-            # Ensure exact training column order.
-            profile_prepared = profile_prepared.reindex(
-                columns=model_columns,
-                fill_value=0
-            )
+        profile_prepared = profile_prepared.reindex(
+            columns=model_columns,
+            fill_value=0
+        )
 
-            final_pred = model.predict(profile_prepared)
+        final_pred = model.predict(profile_prepared)
 
-        except Exception as e:
-            st.error(f"Prediction error: {e}")
-            final_pred = None
+    except Exception as e:
+        st.error(f"Prediction error: {e}")
+        final_pred = None
 
     if final_pred is not None:
         if final_pred[0] == 0:
