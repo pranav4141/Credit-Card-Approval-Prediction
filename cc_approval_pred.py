@@ -298,12 +298,6 @@ model, model_columns = train_model(train_copy)
 
 
 # -----------------------------
-# LOTTIE
-# -----------------------------
-@st.cache_data
-
-
-# -----------------------------
 # STREAMLIT UI
 # -----------------------------
 st.title("Credit Card Approval Prediction")
@@ -505,35 +499,19 @@ def prepare_profile():
         0,
     ]
 
-    profile_df = pd.DataFrame(
+    return pd.DataFrame(
         [profile],
         columns=train_copy.columns
     )
 
-    return profile_df
-
 
 def prepare_profile_for_model(profile_df):
-    # Apply the same feature transformations used during training.
-    df = profile_df.copy()
-
-    df = OutlierRemover().transform(df)
-    df = DropFeatures().transform(df)
-    df = TimeConversionHandler().transform(df)
-    df = RetireeHandler().transform(df)
-    df = SkewnessHandler().transform(df)
-    df = BinningNumToYN().transform(df)
-
-    # Encoding/scaling must use the training data categories/ranges.
-    # Re-run the original preprocessing together with the profile so
-    # that the resulting columns match the trained model.
     combined = pd.concat(
         [train_copy.copy(), profile_df],
         ignore_index=True
     )
 
     prepared = full_pipeline(combined)
-
     profile_prepared = prepared.iloc[[-1]].copy()
 
     return profile_prepared.drop(columns=["Is high risk"])
@@ -545,7 +523,6 @@ if predict_bt:
             profile_df = prepare_profile()
             profile_prepared = prepare_profile_for_model(profile_df)
 
-            # Ensure exact training column order.
             profile_prepared = profile_prepared.reindex(
                 columns=model_columns,
                 fill_value=0
