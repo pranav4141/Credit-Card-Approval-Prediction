@@ -96,22 +96,24 @@ Top 3 models (with default parameters)
 
 ## Lessons learned and recommendation
 
-- Based on the analysis on this project, we found out that the education level and type of relationship are the most predictive features to determine if someone makes more or less than 50K. Other features like Capital gain, hours work and age are also usefull. The least usefull features are: their occupation and the workclass they belong to.
-- Recommendation would be to focus more on the most predictive feature when looking at the applicant profile, and pay less attention on their occupation and workclass.
-## Limitation and what can be improved
+- Class imbalance can significantly affect classification performance, making techniques such as SMOTE useful.
+- Feature engineering and preprocessing have an important impact on model performance.
+- Different classification algorithms can perform differently on the same dataset.
+- Gradient Boosting provided the strongest recall among the compared models.
+- Recall and precision should be considered together when evaluating classification models for risk-related problems.
+- A machine learning model should be evaluated on unseen test data rather than relying only on training performance
 
-- Speed: since the model is stored on AWS S3, it can take some few seconds to load. Solution: cache the model with the Streamlit @st.experimental_singleton for faster reload.
-- Dataset used: the dataset used is from 1990, inflation has not been taken into consideration and the countries's economies have changed since then. Solution: retrain with a more recent dataset.
-- Hyperparameter tuning: I used RandomeSearchCV to save time but could be improved by couple of % with GridSearchCV.
+## Limitations and Future Improvements
+-The dataset is historical and may not represent current credit approval practices. 
+-The model should be retrained and validated using more recent data before any real-world application.
+-More extensive hyperparameter tuning could potentially improve model performance.
+-The preprocessing and model could be combined into a single fitted pipeline for more reliable deployment.
+-Probability calibration and decision-threshold tuning could be explored.
+-Fairness and bias evaluation would be important before applying the model to real financial decisions.
+-The first Streamlit startup can take some time because the model is trained from the dataset. Streamlit caching is used to avoid unnecessary retraining during subsequent reruns.
 
 
 ## Run Locally
-Initialize git
-
-```bash
-git init
-```
-
 
 Clone the project
 
@@ -124,25 +126,6 @@ enter the project directory
 ```bash
 cd Credit-Card-Approval-Prediction
 ```
-
-Create a conda virtual environment and install all the packages from the environment.yml (recommended)
-
-```bash
-conda env create --prefix <env_name> --file assets/environment.yml
-```
-
-Activate the conda environment
-
-```bash
-conda activate <env_name>
-```
-
-List all the packages installed
-
-```bash
-conda list
-```
-
 Start the streamlit server locally
 
 ```bash
@@ -152,7 +135,7 @@ If you are having issue with streamlit, please follow [this tutorial on how to s
 
 ## Explore the notebook
 
-To explore the notebook file [here](https://nbviewer.org/github/semasuka/Income-classification/blob/master/Income_Classification.ipynb)
+To explore the notebook file [here]([Credit_card_approval_prediction.ipynb](https://github.com/pranav4141/Credit-Card-Approval-Prediction/blob/main/Credit_card_approval_prediction.ipynb))
 
 ## Deployment on streamlit
 
