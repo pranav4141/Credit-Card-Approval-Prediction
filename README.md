@@ -172,32 +172,31 @@ To deploy this project on streamlit share, follow these steps:
 
 ```
 
-
-├── datasets
-│   ├── test.csv                    <- the test data.
-│   ├── train.csv                   <- the train data.
-│
-│
 ├── assets
-│   ├── Credit_card_approval_banner.png   <- banner image used in the README.
-│   ├── confusion_matrix.png              <- confusion matrix image used in the README.
-│   ├── environment.yml                   <- list of all the dependencies with their versions(for conda environment).
-│   ├── heatmap.png                       <- heatmap image used in the README.
-│   ├── roc.png                     <- ROC image used in the README.
+│   ├── Credit_card_approval_banner.png       <- banner image used in the README.
+│   ├── confusion_matrix.png                  <- confusion matrix image used in the README.
+│   ├── environment.yml                       <- list of all the dependencies with their versions(for conda environment).
+│   ├── heatmap.png                           <- heatmap image used in the README.
+│   ├── roc.png                               <- ROC image used in the README.
+|
+├── datasets
+│   ├── application_record.csv                <- the application record data.
+│   ├── credit_record.csv                     <- the credit record data.
+│   ├── test.csv                              <- the test data.
+│   ├── train.csv                             <- the train data.
 │
-│
-├── .gitignore                      <- used to ignore certain folder and files that won't be commit to git.
+├── .gitignore                                <- used to ignore certain folder and files that won't be commit to git.
 │
 │
 ├── Credit_card_approval_prediction.ipynb     <- main python notebook where all the analysis and modeling are done.
 │
 │
-├── cc_approval_pred.py             <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
+├── READM◘E.md                                 <- this readme file.
 │
 │
-├── README.md                       <- this readme file.
+├── cc☻_approval_pred.py                       <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
 │
 │
-├── requirements.txt                <- list of all the dependencies with their versions(used for Streamlit ).
+├── requirements.txt                           <- list of all the dependencies with their versions(used for Streamlit ).
 
 ```
