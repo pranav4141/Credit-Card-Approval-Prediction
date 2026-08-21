@@ -83,16 +83,14 @@ Top 3 models (with default parameters)
 
 - ***The final model used is: Gradient boosting***
 - ***Metrics used: Recall***
+
+### Why Recall?
+
+Recall is important because the project focuses on identifying applicants belonging to the high-risk class. A higher recall means the model is better at identifying actual high-risk applicants.
+
+There is a trade-off between precision and recall, so both metrics should be considered when evaluating the model.
 - Why choose precision as metrics:
   Since the objective of this problem is to minimize the risk of credit default for the financial institution, the metrics to use depends on the current economical situation:
-
-  - During the time of a bull market (when the economy is expending), people feel wealthy and usually are employed. Money is usually cheap and the risk of default is low. The financial institution is able to handle the risk of default therefore is not very strict on giving out credit. The financial institution can handle a number of bad clients as long as the vast majority of applicants are good clients (aka those who payback their credit).In this case, having a good recall (sensitivity) is ideal.
-  - During a bear market (when the economy is contracting), people loose their jobs and their money through the stock market. Many people struggle to meet their financial obligations. The financial institution therefore tend to be more conservative on giving out credit or loans. The financial institution can't afford to give out credit to clients who won't be able to pay back their credit. The financial institution would rather have a smaller number of good clients even if it means that some good clients where denied credit, and ideally not have any bad client. In this case, having a good precision (specificity) is desirable.
-
-    Note: There is always a trade-off between precision and recall. Choosing the right metrics depends on the problem you are solving.
-
-    Conclusion: In our case, since we are in the longest bull market (not including the March 2020 flash crash), we will use recall as our metric.
-
 
 ## Lessons learned and recommendation
 
@@ -118,9 +116,11 @@ Top 3 models (with default parameters)
 Clone the project
 
 ```bash
-https://github.com/pranav4141/Credit-Card-Approval-Prediction.git
+git clone https://github.com/pranav4141/Credit-Card-Approval-Prediction.git
 ```
-
+```bash
+pip install -r requirements.txt
+```
 enter the project directory
 
 ```bash
@@ -135,7 +135,7 @@ If you are having issue with streamlit, please follow [this tutorial on how to s
 
 ## Explore the notebook
 
-To explore the notebook file [here]([Credit_card_approval_prediction.ipynb](https://github.com/pranav4141/Credit-Card-Approval-Prediction/blob/main/Credit_card_approval_prediction.ipynb))
+To explore the notebook file [here](https://github.com/pranav4141/Credit-Card-Approval-Prediction/blob/main/Credit_card_approval_prediction.ipynb)
 
 ## Deployment on streamlit
 
@@ -174,10 +174,10 @@ To deploy this project on streamlit share, follow these steps:
 ├── Credit_card_approval_prediction.ipynb     <- main python notebook where all the analysis and modeling are done.
 │
 │
-├── READM◘E.md                                 <- this readme file.
+├── README.md                                 <- this readme file.
 │
 │
-├── cc☻_approval_pred.py                       <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
+├── cc_approval_pred.py                       <- file with the best model and best hyperparameter with streamlit component for rendering the interface.
 │
 │
 ├── requirements.txt                           <- list of all the dependencies with their versions(used for Streamlit ).
