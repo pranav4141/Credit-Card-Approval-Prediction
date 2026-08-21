@@ -34,8 +34,7 @@ Badge [source](https://shields.io/)
 
 
 ## Business problem
-
-This app predicts if an applicant will be approved for a credit card or not. Each time there is a hard enquiry your credit score is affected negatively. This app predict the probability of being approved without affecting your credit score. This app can be used by applicant who wants to find out if they will be approved for a credit card without affecting their credit score.
+Each time there is a hard enquiry your credit score is affected negatively. This app predict the probability of being approved without affecting your credit score. This project predicts whether a credit card applicant is likely to be classified as high risk based on their application information.
 ## Data source
 
 - [Kaggle credit card approval prediction](https://www.kaggle.com/rikdifos/credit-card-approval-prediction)
@@ -89,8 +88,6 @@ Top 3 models (with default parameters)
 Recall is important because the project focuses on identifying applicants belonging to the high-risk class. A higher recall means the model is better at identifying actual high-risk applicants.
 
 There is a trade-off between precision and recall, so both metrics should be considered when evaluating the model.
-- Why choose precision as metrics:
-  Since the objective of this problem is to minimize the risk of credit default for the financial institution, the metrics to use depends on the current economical situation:
 
 ## Lessons learned and recommendation
 
@@ -118,13 +115,14 @@ Clone the project
 ```bash
 git clone https://github.com/pranav4141/Credit-Card-Approval-Prediction.git
 ```
-```bash
-pip install -r requirements.txt
-```
 enter the project directory
 
 ```bash
 cd Credit-Card-Approval-Prediction
+```
+
+```bash
+pip install -r requirements.txt
 ```
 Start the streamlit server locally
 
