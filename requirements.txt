@@ -6,4 +6,3 @@ imbalanced-learn
 joblib
 requests
 boto3
-streamlit-lottie
