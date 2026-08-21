@@ -116,13 +116,13 @@ git init
 Clone the project
 
 ```bash
-git clone https://github.com/semasuka/Credit-card-approval-prediction-classification.git
+https://github.com/pranav4141/Credit-Card-Approval-Prediction.git
 ```
 
 enter the project directory
 
 ```bash
-cd Credit-card-approval-prediction-classification
+cd Credit-Card-Approval-Prediction
 ```
 
 Create a conda virtual environment and install all the packages from the environment.yml (recommended)
