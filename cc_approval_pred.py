@@ -21,7 +21,7 @@ from botocore.exceptions import ClientError
 
 
 train_original = pd.read_csv(
-    "https://raw.githubusercontent.com/semasuka/Credit-card-approval-prediction-classification/refs/heads/main/dataset/train.csv"
+    "https://raw.githubusercontent.com/pranav4141/Credit-Card-Approval-Prediction/refs/heads/main/datasets/train.csv"
 )
 
 test_original = pd.read_csv(
